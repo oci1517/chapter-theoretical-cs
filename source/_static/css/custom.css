@@ -1,0 +1,13 @@
+p.caption > .caption-text {
+  font-size: 50%;
+  font-weight: normal;
+  line-height: 0;
+}
+
+p.caption {
+  text-align: center;
+}
+
+p.caption::before {
+  content: "Figure : "
+}
