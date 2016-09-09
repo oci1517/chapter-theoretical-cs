@@ -7,7 +7,3 @@ p.caption > .caption-text {
 p.caption {
   text-align: center;
 }
-
-p.caption::before {
-  content: "Figure : "
-}

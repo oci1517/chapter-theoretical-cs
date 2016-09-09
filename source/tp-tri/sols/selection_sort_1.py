@@ -33,12 +33,12 @@ def test():
 
 
 def timeit():
-    sizes = [500, 1000, 2000, 5000, 10000, 15000, 20000]
+    sizes = [1000, 2000, 5000, 10000, 20000]
     # bench(selection_sort_1, distribution=random_list_alldifferent, sizes=sizes, output="csv")
-    bench(selection_sort_1, distribution=random_list_alldifferent, sizes=[1e5], output="csv")
+    report = bench(selection_sort_1, distribution=random_list_alldifferent, sizes=sizes)
+    report.add_formats([FormatCSV]).report().stdout()
 
 
-test()
-#timeit()
-ops_report = count_ops(selection_sort_1, sizes=[500, 1000, 2000])
-ops_report.add_format(FormatCSV).report().stdout()
+if __name__ == '__main__':
+    timeit()
+    test()

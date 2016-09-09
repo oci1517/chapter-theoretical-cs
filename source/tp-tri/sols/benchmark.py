@@ -71,7 +71,7 @@ def bench(algo, sizes=None, distribution=random_list_alldifferent):
         algo(elements)
         t1 = time()
 
-        report.insert(N, t1-t0)
+        report.insert([N, t1-t0])
 
     return report
 

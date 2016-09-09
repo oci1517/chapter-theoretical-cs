@@ -17,12 +17,12 @@ mesurer son temps d’exécution. Ce temps est calculé en estimant le nombre mo
 d’opérations exécutées pour trier un ensemble de n éléments.
 
 En règle générale, les méthodes de tri élémentaires, comme le tri par sélection,
-par insertion et par bulles, requièrent environ :math:`n^2` étapes pour trier :math:`n` éléments choisis
-dans un ordre quelconque. Si n est suffisamment petit (:math:`n < 20`), ceci ne pose pas
-de problème et, si les éléments sont presque ou déjà rangés, certaines de ces
-méthodes se montrent souvent bien meilleures que d’autres plus complexes. Malgré
-tout, rappelons que ces méthodes ne sauraient convenir pour des fichiers
-aléatoires de grande taille.
+par insertion et par bulles, requièrent environ :math:`n^2` étapes pour trier
+:math:`n` éléments choisis dans un ordre quelconque. Si :math:`n` est suffisamment petit
+(:math:`n < 20`), ceci ne pose pas de problème et, si les éléments sont presque
+ou déjà rangés, certaines de ces méthodes se montrent souvent bien meilleures
+que d’autres plus complexes. Malgré tout, rappelons que ces méthodes ne
+sauraient convenir pour des fichiers aléatoires de grande taille.
 
 Différents algorithmes de tri
 -----------------------------
@@ -33,7 +33,7 @@ Différents algorithmes de tri
 
 ..  only:: not html
 
-    Visualisater la vidéo Youtube
+    Visualiser la vidéo Youtube
     https://www.youtube.com/watch?v=ZZuD6iUe3Pc
 
 
@@ -46,7 +46,7 @@ Différents algorithmes de tri
 Objectifs
 =========
 
-Au terme de cet exercice d'exploration, chaque élève du groupe devra être
+Au terme de cet exercice d'exploration, chaque étudiant devra être
 capable de:
 
 *	Expliquer le principe de chacun des algorithmes étudiés ;
@@ -58,168 +58,42 @@ capable de:
 Consignes du travail
 ====================
 
-Par groupes de deux, étudiez chacun des algorithmes de tri énoncés ci-dessous en
-suivant les étapes ci-dessous :
+Étudier chacun des algorithmes de tri énoncés ci-dessous en suivant les étapes
+ci-dessous :
 
 1.	Etudier le principe de tri de l’algorithme à l’aide de l’exemple introductif
 2.	Visualiser l’algorithme sur http://interstices.info/jcms/c_6973/les-algorithmes-de-tri
 3.	Décrire à la main la progression de l’algorithme sur la liste ``[91, 17, 2, 35, 54]`` et déterminer le nombre total de comparaisons nécessaires.
-4.	Testez votre algorithme avec une liste complètement mélangée, une liste décroissante, une liste croissante et une liste comprenant des doublons
 5.	Implémenter l’algorithme en Python sous la forme d’une fonction prenant en paramètre la liste d’entiers à trier.
+4.	Testez votre algorithme avec une liste complètement mélangée, une liste décroissante, une liste croissante et une liste comprenant des doublons (Few uniques)
 6.  Chronométrer chacun des algorithmes et compter le nombre d'opérations de comparaisons / copies / swaps pour les tailles de tableaux ``sizes`` données par
 
     ::
 
-        milliers = [1, 2, 5, 10, 15, 20, 50, 100, 200, 500, 1000]
-        sizes = [1000*i for i in milliers]
+        sizes = [1000*i for i in [1, 2, 5, 10, 15, 20]]
 
-8.  Représenter graphiquement le temps d'exécution de chaque algorithmes en fonction de la taille de la liste à trier. Utiliser Excel à cet égard en imprimant les données dans un format approprié (CSV par exemple)
+8.  Représenter graphiquement le temps d'exécution de chaque algorithmes en fonction de la taille de la liste à trier. À cette fin, utiliser Excel ou Desmos (exemple : https://www.desmos.com/calculator/ka2cgp7aas)
 
-7.  Faire un rapport (Document LibreOffice) indiquant, pour chaque algorithme, sa classe de complexité sur la base ainsi que les mesures prises dans les points précédents
+7.  Faire un rapport (Document LibreOffice) indiquant, pour chaque algorithme, sa classe de complexité ainsi que les mesures prises dans les points précédents
+
+.. admonition:: Outils à disposition
+   :class: tip
+
+   Pour évaluer les performances des algorithmes à étudier, utiliser les modules
+   suivants disponibles à l'adresse
+   https://github.com/oci1517/chapter-theoretical-cs/tree/master/source/tp-tri/sols
+
+   *  ``benchmark``
+   *  ``counter``
+   *  ``report``
+
+   Un exemple d'utilisation de ces modules figure dans l'exemple d'analyse du
+   tri par sélection (:ref:`sec-selection-sort-example`).
 
 Les algorithmes à étudier
 =========================
 
-Tri par sélection
------------------
-
-..  admonition:: Consigne
-    :class: tip
-
-    Cet algorithme sera étudié en classe avec le professeur
-
-Cette méthode de tri commence par rechercher l’élément ayant la plus petite
-valeur de la liste pour l’échanger avec celui situé en première position, puis
-elle recherche l’élément ayant la deuxième plus petite valeur pour l’échanger
-avec celui situé en deuxième position et elle recommence ainsi jusqu’à atteindre
-le dernier élément de la liste. Cette méthode porte le nom de tri par sélection
-car elle procède à la « sélection » successive de l’élément minimal parmi ceux
-restants, comme le montre la figure ci-dessous :
-
-..  figure:: figures/selection-sort-visu.png
-    :width: 50%
-    :align: center
-
-
-À mesure que l’indice ``i`` progresse vers la droite de la liste, les éléments
-situés à sa gauche ont pris leur position définitive et la liste est triée
-lorsque l’indice atteint l’extrémité droite. Remarquons que l’algorithme peut
-également se dérouler en triant la liste depuis la droite, c’est-à-dire en
-sélectionnant à chaque passe le prochain plus grand élément.
-
-Visualisation dynamique
-+++++++++++++++++++++++
-
-..  only:: html
-
-    ..  youtube:: 92BfuxHn2XE
-
-..  only:: not html
-
-    Visualisater la vidéo Youtube
-    https://www.youtube.com/watch?v=92BfuxHn2XE&index=11
-
-Visualisation statique
-++++++++++++++++++++++
-
-..  figure:: figures/selection-static.png
-
-    Visualisation statique du tri par sélection (cf. https://corte.si/posts/code/visualisingsorting/index.html)
-
-Tri par insertion
------------------
-
-Cette méthode, la plus utilisée lorsqu’on trie des cartes, considère les
-éléments les uns après les autres en insérant chacun à sa place parmi ceux déjà
-triés. Pour insérer l’élément couramment considéré, on déplace simplement les
-éléments qui lui sont supérieur un cran vers la droite et on l’insère dans la
-place laissée vacante, comme le montre la figure ci-dessous :
-
-..  figure:: figures/insertion-sort-visu.png
-    :width: 50%
-    :align: center
-
-Visualisation dynamique
-+++++++++++++++++++++++
-
-..  only:: html
-
-    ..  youtube:: 8oJS1BMKE64
-
-..  only:: not html
-
-    Visualisater la vidéo Youtube
-    https://www.youtube.com/watch?v=8oJS1BMKE64
-
-Visualisation statique
-++++++++++++++++++++++
-
-..  figure:: figures/insertion-static.png
-
-    Visualisation statique du tri par insertion (cf. https://corte.si/posts/code/visualisingsorting/index.html)
-
-Tri à bulles
-------------
-
-Cette méthode consiste à traverser plusieurs fois la liste en échangeant à
-chaque passage des éléments adjacents placés dans un mauvais ordre relatif. Plus
-précisément, dès que l’élément de plus grande valeur est rencontré lors de la
-première traversée, il est échangé avec chacun des éléments situés à sa droite
-jusqu’à ce qu’il trouve sa place définitive, à l’extrémité droite de la liste. A
-la deuxième traversée, c’est l’élément ayant la deuxième plus grande valeur qui
-est successivement poussé vers sa place définitive et ainsi de suite, comme
-l’illustre la figure ci-dessous :
-
-..  figure:: figures/bubble-sort-visu.png
-    :width: 50%
-    :align: center
-
-Chaque traversée permet de placer un élément à sa place définitive en commençant
-par celui ayant la plus grande valeur. Dès lors, les éléments situés à droite de
-l’indice ``i`` sont à leur position.
-
-Visualisation dynamique
-+++++++++++++++++++++++
-
-..  only:: html
-
-    ..  youtube:: Cq7SMsQBEU
-
-..  only:: not html
-
-    Visualisater la vidéo Youtube
-    https://www.youtube.com/watch?v=Cq7SMsQBEU
-
-Visualisation statique
-++++++++++++++++++++++
-
-..  figure:: figures/bubble-static.png
-
-    Visualisation statique du tri à bulles (cf. https://corte.si/posts/code/visualisingsorting/index.html)
-
-Tri rapide (Quick sort)
------------------------
-
-Le tri rapide est, comme son nom l'indique, un algorithme de tri très rapide et
-utilisé dans la plupart des langages. Il est fondé sur le principe de la
-programmation récursive "diviser pour régner" (divide and conquer).
-
-
-Visualisation dynamique
-+++++++++++++++++++++++
-
-..  only:: html
-
-    ..  youtube:: 8hEyhs3OV1w
-
-..  only:: not html
-
-    Visualisater la vidéo Youtube
-    https://www.youtube.com/watch?v=8hEyhs3OV1w
-
-Visualisation statique
-++++++++++++++++++++++
-
-..  figure:: figures/quick-static.png
-
-    Visualisation statique du tri rapide (cf. https://corte.si/posts/code/visualisingsorting/index.html)
+.. include:: selection-sort.rst
+.. include:: insertion-sort.rst
+.. include:: merge-sort.rst
+.. include:: quick-sort.rst

@@ -30,6 +30,8 @@ Table des matières
     tp-tri/index
     tp-tri/selection-corrige
 
+    appendix/unittest
+
 
 
 ..

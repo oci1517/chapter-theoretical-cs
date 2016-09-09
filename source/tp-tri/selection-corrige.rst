@@ -1,3 +1,6 @@
+
+.. _sec-selection-sort-example:
+
 #################################
 Optimisation et analyse du tri par sélection
 #################################
@@ -31,13 +34,14 @@ séparée).
    :language: python
    :linenos:
 
-La mesure du temps d'exécution de la fonction ``selection_sort_1`` donne
+La mesure du temps d'exécution de la fonction ``selection_sort_1`` grâce aux
+instructions suivantes de la fonction ``timeit()``
 
 ::
 
-  def timeit():
-      sizes = [500, 1000, 2000, 5000, 10000, 15000, 20000]
-      bench(selection_sort_1, distribution=random_list_alldifferent, sizes=sizes, output="csv")
+    sizes = [500, 1000, 2000, 5000, 10000, 15000, 20000]
+    report = bench(selection_sort_1, distribution=random_list_alldifferent, sizes=sizes)
+    report.add_formats([FormatCSV]).report().stdout()
 
 .. admonition:: sortie
    :class: info
@@ -67,7 +71,7 @@ Ce qui correspond au tableau suivant :
    15000;6.603893995285034
    20000;11.516392469406128
 
-Si l'on représente graphiquement ces données, on obtient on voit qu'elles
+Si l'on représente graphiquement ces données, on voit qu'elles
 suivent en gros la fonction :math:`f(x)=2.8\cdot 10^{-8}\cdot x^2` :
 
 ..  figure:: figures/graph-selection-sort_1.png
@@ -102,33 +106,36 @@ suivent en gros la fonction :math:`f(x)=2.8\cdot 10^{-8}\cdot x^2` :
     Combien faudrait-il de temps pour trier une liste de :math:`10^6`
     éléments aléatoires avec le tri par sélection?
 
-..  comment:: Seul problème ... ma deuxième tentative est deux fois plus lente ...
 
-    Deuxième tentative
-    ==================
+Deuxième tentative
+==================
 
-    La précédente implémentation souffre de plusieurs défauts que nous allons
-    essayer de corriger dans un deuxième temps :
+La précédente implémentation souffre de plusieurs défauts que nous allons
+essayer de corriger dans un deuxième temps :
 
-    #.  Il s'agit d'une implémentation *out-of-place* de l'algorithme : en plus de
-        la liste originale à trier, on utiliser encore une autre liste supplémentaire,
-        ce qui est un gros gaspillage de mémoire RAM.
+#.  Il s'agit d'une implémentation *out-of-place* de l'algorithme : en plus de
+    la liste originale à trier, on utiliser encore une autre liste supplémentaire,
+    ce qui est un gros gaspillage de mémoire RAM.
 
-    #.  La fonction ``selection_sort_1`` modifie sans arrêt la liste originale avec
-        ``elements.remove(...)``, ce qui occasionne de grosses pertes de performances.
+#.  La fonction ``selection_sort_1`` modifie sans arrêt la liste originale avec
+    ``elements.remove(...)``, ce qui occasionne de grosses pertes de performances.
 
-    Récrivons donc l'algorithme avec une fonction qui fait un tri *in place* et qui
-    n'utilise pas la méthode ``.remove()`` très coûteuse en opérations mémoire pour
-    Python. L'idée principale de cette nouvelle implémentation est que l'on cherche
-    l'indice du plus petit élément dans la liste (``least_element_index`` au lieu de
-    ``least_element``) et que l'on échange l'élément se trouvant au début de la
-    sous-liste en cours d'examen (entre ``i`` et ``len(elements) - 1``) et le plus
-    petit élément de cette sous-liste.
+Récrivons donc l'algorithme avec une fonction qui fait un tri *in place* et
+qui n'utilise pas la méthode ``.remove()``. L'idée principale de cette
+nouvelle implémentation est que l'on cherche l'indice du plus petit élément
+dans la liste (``least_element_index`` au lieu de ``least_element``) et que
+l'on échange l'élément se trouvant au début de la sous-liste en cours
+d'examen (entre ``i`` et ``len(elements) - 1``) et le plus petit élément de
+cette sous-liste.
 
+.. _selection_sort_2_countops:
 
-    .. literalinclude:: sols/selection_sort_2.py
-       :language: python
-       :linenos:
+Code source du tri sélection *in place*
+---------------------------------------
+
+.. literalinclude:: sols/selection_sort_2.py
+   :language: python
+   :linenos:
 
 
 Comptage du nombre d'opérations sur différents types de listes
@@ -153,6 +160,27 @@ Pour effectuer le comptage des opérations, on charge le module ``counter`` qui
 contient deux objets globaux ``comparisons`` et ``swaps``. Pour augmenter un
 compteur, il suffit d'appeler sa méthode ``incr()`` et pour le réinitialiser, il
 suffit d'invoquer sa méthode ``reset()``.
+
+.. admonition:: Remarque
+   :class: note
+
+   Dans le code :ref:`selection_sort_2_countops`, remarquez la présente de la
+   ligne
+
+   ::
+
+      comparisons.incr()
+
+   aux endroits du code qui effectuent une comparaison à comptabiliser (ligne
+   10) et l'instruction
+
+   ::
+
+      swaps.incr()
+
+   aux endroits du code qui effectuent une permutation à comptabiliser (ligne
+   27).
+
 
 .. literalinclude:: sols/selection_count_ops.py
    :language: python
@@ -181,3 +209,6 @@ Nombre de permutations
    500;493;453;10;0;250
    1000;987;903;20;0;500
    2000;1988;1791;40;0;1000
+   5000;4984;4522;100;0;2500
+   10000;9982;9086;200;0;5000
+   20000;19977;18028;400;0;10000

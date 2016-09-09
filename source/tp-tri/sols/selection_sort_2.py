@@ -1,5 +1,4 @@
-from benchmark import *
-from counter import *
+from counter import comparisons, swaps
 
 def least_element_index(elements, start_index=0):
     assert len(elements) > 0
@@ -7,6 +6,7 @@ def least_element_index(elements, start_index=0):
     least_index = start_index
 
     for i in range(start_index+1, len(elements)):
+        # incrémentation du compteur global de comparaisons
         comparisons.incr()
         if elements[i] < elements[least_index]:
             least_index = i
@@ -22,8 +22,10 @@ def selection_sort_2(elements):
 
         # échange du plus petit élément avec le premier du sous-tableau
         # actuellement en cours d'examen
-        swaps.incr()
-        elements[i], elements[index_of_least] = elements[index_of_least], elements[i]
+        if index_of_least > i:
+            # incrémenter le compteur global de swaps
+            swaps.incr()
+            elements[i], elements[index_of_least] = elements[index_of_least], elements[i]
 
     return elements
 
@@ -33,11 +35,5 @@ def test():
     assert selection_sort_2([1,2,1,2,3,2,1]) == [1,1,1,2,2,2,3]
     assert selection_sort_2([6,5,4,3,2,1]) == [1,2,3,4,5,6]
 
-
-def timeit():
-    sizes = [500, 1000, 2000, 5000, 10000, 15000, 20000]
-    bench(selection_sort_2, distribution=random_list_alldifferent, sizes=sizes, output="csv")
-
-
-test()
-timeit()
+if __name__ == '__main__':
+    test()
