@@ -61,20 +61,34 @@ Consignes du travail
 Étudier chacun des algorithmes de tri énoncés ci-dessous en suivant les étapes
 ci-dessous :
 
-1.	Etudier le principe de tri de l’algorithme à l’aide de l’exemple introductif
-2.	Visualiser l’algorithme sur http://interstices.info/jcms/c_6973/les-algorithmes-de-tri
-3.	Décrire à la main la progression de l’algorithme sur la liste ``[91, 17, 2, 35, 54]`` et déterminer le nombre total de comparaisons nécessaires.
-5.	Implémenter l’algorithme en Python sous la forme d’une fonction prenant en paramètre la liste d’entiers à trier.
-4.	Testez votre algorithme avec une liste complètement mélangée, une liste décroissante, une liste croissante et une liste comprenant des doublons (Few uniques)
-6.  Chronométrer chacun des algorithmes et compter le nombre d'opérations de comparaisons / copies / swaps pour les tailles de tableaux ``sizes`` données par
+#. Etudier le principe de tri de l’algorithme à l’aide de l’exemple introductif
 
-    ::
+#. Visualiser l’algorithme sur http://interstices.info/jcms/c_6973/les-algorithmes-de-tri
 
-        sizes = [1000*i for i in [1, 2, 5, 10, 15, 20]]
+#. Décrire à la main la progression de l’algorithme sur la liste ``[91, 17, 2, 35, 54]`` et
+   déterminer le nombre total de comparaisons nécessaires.
 
-8.  Représenter graphiquement le temps d'exécution de chaque algorithmes en fonction de la taille de la liste à trier. À cette fin, utiliser Excel ou Desmos (exemple : https://www.desmos.com/calculator/ka2cgp7aas)
+#.	Implémenter l’algorithme en Python sous la forme d’une fonction prenant en
+   paramètre la liste d’entiers à trier.
 
-7.  Faire un rapport (Document LibreOffice) indiquant, pour chaque algorithme, sa classe de complexité ainsi que les mesures prises dans les points précédents
+#.	Testez votre algorithme avec une liste complètement mélangée, une liste
+   décroissante, une liste croissante et une liste comprenant des doublons (Few
+   uniques)
+
+#. Chronométrer chacun des algorithmes et compter le nombre d'opérations de
+   comparaisons / copies / swaps pour les tailles de tableaux ``sizes`` données
+   par
+
+   ::
+
+      sizes = [1000*i for i in [1, 2, 5, 10, 15, 20]]
+
+#. Représenter graphiquement le temps d'exécution de chaque algorithmes en
+   fonction de la taille de la liste à trier. À cette fin, utiliser Excel ou
+   Desmos (exemple : https://www.desmos.com/calculator/ka2cgp7aas)
+
+#. Faire un rapport (Document LibreOffice) indiquant, pour chaque algorithme, sa
+   classe de complexité ainsi que les mesures prises dans les points précédents
 
 .. admonition:: Outils à disposition
    :class: tip

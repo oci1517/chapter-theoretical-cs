@@ -53,9 +53,16 @@ Implémentation avec fusion itérative
       en tentant de trouver une courbe d'ajustement correspondant au nuage de
       points obtenus (utiliser l'outil *table* de https://www.desmos.com/).
 
-   #. Prédire le temps nécessaire pour trier ``1e6`` éléments aléatoires et vérifier cette prédiction expérimentalement.
+   #. Prédire le temps nécessaire pour trier ``1e6`` éléments aléatoires et
+      vérifier cette prédiction expérimentalement.
 
-   #. Compter expérimentalement le nombre moyen de comparaisons et d'insertions
+   #. Compter expérimentalement le nombre moyen de comparaisons nécessaires
+      sur les différents types de listes et pour
+      les tailles de listes ``sizes`` indiquées au point précédent. Pour ce faire,
+      utiliser le module ``counter`` en insérant dans le code des appels à
+      ``comparisons.incr()`` et ``swaps.incr()``. 
+
+   #. Compter expérimentalement le nombre moyen de comparaisons
       nécessaires sur les différents types de listes et pour les tailles de listes
       ``sizes`` indiquées au point précédent
 
