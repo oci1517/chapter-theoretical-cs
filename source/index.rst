@@ -29,9 +29,11 @@ Table des matières
     tri-complexite/index
     tp-tri/index
     tp-tri/selection-corrige
-    appendix/unittest
+    unsolvable/index
+    backtracking/index
 
 
+    .. appendix/unittest
 
 ..
     Indices and ref
