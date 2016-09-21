@@ -604,51 +604,9 @@ situent pas en dehors de la grille.
    une vision locale en se trouvant dans le labyrinthe, pour autant que les murs
    soient trop haut pour qu’il puisse voir « au-delà » du couloir actuel.
 
-Exercices
-=========
 
-#. Dans un arbre binaire, chaque nœud possède exactement deux nœuds fils, à
-   savoir un nœud gauche et un nœud droit. Représentons chacun des nœuds par une
-   liste de deux entiers ``[m,n]`` où ``m`` symbolise la profondeur du nœud au
-   sein de l’arbre et ``n`` sa position en largeur.
-
-   Développer un programme qui écrit le chemin permettant de passer d’un nœud
-   initial à un nœud final.
-
-
-   .. figure:: figures/effA3_1.png
-      :align: center
-      :width: 80%
-
-      Chemin d'un noeud initial à un noeud final
-
-#. Il est remarquable qu’il soit toujours possible de trouver la sortie d’un
-   labyrinthe en utilisant la règle de la main droite, même lorsque le labyrinthe
-   comporte des cycles. Cette règle consiste à suivre scrupuleusement le mur avec
-   la main droite en observant les règles suivantes :
-
-   *  Si la cellule à droite de la cellule actuelle est libre (pas de mur), bouger vers cette cellule
-   *  Si ce n’est pas possible (la cellule à droite est un mur), continuer tout droit
-   *  Si aucune des deux premières possibilités n’est possible, tourner à gauche
-
-   Implémenter cette règle pour le labyrinthe ``GameGrid`` en utilisant une
-   coccinelle pivotable comme acteur avec
-
-   ::
-
-      lady = Actor(True, "sprites/ladybug.gif").
-
-   .. admonition:: Indications
-      :class: tip
-
-      Placer la coccinelle dans la cellule selon la règle de la main
-      droite en utilisant la fonction ``move()``. Si la cellule en question est un
-      mur, annuler le mouvement. Comparer cette solution avec celle obtenue par
-      l’algorithme de retour sur trace.
-
-
-BONUS : Le problème des :math:`N` dames
-=======================================
+Le problème des :math:`N` dames
+================================
 
 Le problème des :math:`N` dames est un problème d’échecs qui a déjà été discuté
 depuis le milieu du 19e siècle. Il s’agit de placer :math:`N` dames sur un
@@ -807,18 +765,54 @@ sur trace est arrêtée (condition d’arrêt de la récursion).
    quelques secondes ou en quelques minutes. Si l’exécution est trop lente, il
    suffit de réduire la taille du problème en posant :math:`N=6`.
 
-
 Exercices
 =========
 
-#. Résoudre la même tâche sans utiliser la bibliothèque ``GameGrid``. Remplacer
+#. Dans un arbre binaire, chaque nœud possède exactement deux nœuds fils, à
+   savoir un nœud gauche et un nœud droit. Représentons chacun des nœuds par une
+   liste de deux entiers ``[m,n]`` où ``m`` symbolise la profondeur du nœud au
+   sein de l’arbre et ``n`` sa position en largeur.
+
+   Développer un programme qui écrit le chemin permettant de passer d’un nœud
+   initial à un nœud final.
+
+
+   .. figure:: figures/effA3_1.png
+      :align: center
+      :width: 80%
+
+      Chemin d'un noeud initial à un noeud final
+
+#. Il est remarquable qu’il soit toujours possible de trouver la sortie d’un
+   labyrinthe en utilisant la règle de la main droite, même lorsque le labyrinthe
+   comporte des cycles. Cette règle consiste à suivre scrupuleusement le mur avec
+   la main droite en observant les règles suivantes :
+
+   *  Si la cellule à droite de la cellule actuelle est libre (pas de mur), bouger vers cette cellule
+   *  Si ce n’est pas possible (la cellule à droite est un mur), continuer tout droit
+   *  Si aucune des deux premières possibilités n’est possible, tourner à gauche
+
+   Implémenter cette règle pour le labyrinthe ``GameGrid`` en utilisant une
+   coccinelle pivotable comme acteur avec
+
+   ::
+
+      lady = Actor(True, "sprites/ladybug.gif").
+
+   .. admonition:: Indications
+      :class: tip
+
+      Placer la coccinelle dans la cellule selon la règle de la main
+      droite en utilisant la fonction ``move()``. Si la cellule en question est un
+      mur, annuler le mouvement. Comparer cette solution avec celle obtenue par
+      l’algorithme de retour sur trace.
+
+#. Résoudre le problèmes des :math:`N` dames sans utiliser la bibliothèque ``GameGrid``. Remplacer
    les objets ``Location`` par une liste de listes ``[i, k]`` représentant la
    position de la case dans l’échiquier. La solution peut être imprimée dans la
    console comme une liste de nœuds.
 
-
-#. Généraliser le programme réalisé précédemment pour :math:`N = 6` ou votre propre
-   programme de l’exercice 1 pour qu’il trouve toutes les solutions possibles.
+#. Généraliser le programme de résolution du problème des :math:`N` de l'exercices précédent pour qu’il trouve toutes les solutions possibles.
    Remarquez que certains nœuds reviennent à plusieurs reprises (symétries et
    rotations de l’échiquier). Éviter les doublons en maintenant une liste de
    solutions déjà trouvées.

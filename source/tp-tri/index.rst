@@ -73,7 +73,18 @@ ci-dessous :
 
 #. Visualiser l’algorithme sur http://interstices.info/jcms/c_6973/les-algorithmes-de-tri
 
-#. Suivre les consignes spécifiques à l'étude de chacun des algorithmes
+#. Mesurer les performances de chaque algorithme selon les consignes spécifiques à l'étude de chacun d'eux.
+
+   .. warning::
+
+      Attention à ne pas faire les tests sur Cloud9 qui donnerait des résultats
+      complètement aléatoires dus à la nature mutualisée du service. En effet,
+      d'autres utilisateurs utilisent le CPU en même temps, ce qui peut avoir un
+      impact très significatif sur l'exécution de vos programmes. Il faut donc
+      exécuter les programmes dans un interpréteur Python standard (CPython).
+
+      De préférence, se passer également de Jython qui peut être sujet à des
+      effets imprévisibles dus au ramasse-miettes Java.
 
 #. Faire un rapport (Document LibreOffice) répondant aux questions posées au
    sujet de chacun des algorithmes.

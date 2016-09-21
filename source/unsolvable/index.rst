@@ -146,12 +146,16 @@ Illustration des différentes combinaisons
    ::
 
       >>> import itertools
+      # liste de toutes les combinaisons de longueur 1
       >>> list(itertools.combinations([1,2,3,4], 1))
       [(1,), (2,), (3,), (4,)]
+      # liste de toutes les combinaisons de longueur 2
       >>> list(itertools.combinations([1,2,3,4], 2))
       [(1, 2), (1, 3), (1, 4), (2, 3), (2, 4), (3, 4)]
+      # liste de toutes les combinaisons de longueur 3
       >>> list(itertools.combinations([1,2,3,4], 3))
       [(1, 2, 3), (1, 2, 4), (1, 3, 4), (2, 3, 4)]
+      # liste de toutes les combinaisons de longueur 4
       >>> list(itertools.combinations([1,2,3,4], 4))
       [(1, 2, 3, 4)]
 
@@ -162,7 +166,7 @@ Illustration des différentes combinaisons
 
    .. math::
 
-      c =
+      C_n^k =
       {n \choose k} = \frac{n!}
       {
          k! \cdot (n-k)!
@@ -389,8 +393,19 @@ Il apparaît donc vraisemblable que le théorème suivant soit vérifié:
 
 .. admonition:: Hypothèse de Collatz
 
-   Pour tout terme initial :math:`n`, la suite :math:`3n+1` atteint le nombre :math:`1` en un nombre
-   fini d’étapes.
+   Pour tout terme initial :math:`n`, la suite
+
+   .. math::
+
+      x_{n+1} =
+      \begin{cases}
+         3x_n + 1 & \text{si $x_n$ est impair} \\
+         \dfrac{x_n}{2} & \text{si $x_n$ est pair}
+      \end{cases}
+
+   atteint le nombre :math:`1` en un nombre fini d’étapes. Par commodité de
+   notation, cette suite numérique est souvent désignée par "suite :math:`3n +
+   1`".
 
 On peut faire soi-même l’expérience et parcourir la suite (:math:`3n+1`) à l’aide d’un
 programme informatique pour un nombre initial :math:`n` quelconque.
@@ -475,8 +490,9 @@ programme informatique pour un nombre initial :math:`n` quelconque.
    Le problème de Collatz peut également être formulé comme un problème de
    décision:
 
-      Un algorithme qui calcule les termes de la suite :math:`3n+1` et qui s’arrête à
-      :math:`1` s’arrête-t-il vraiment pour tous les termes initiaux possibles?
+      Un algorithme qui calcule les termes de la suite :math:`3n+1` et qui
+      s’arrête à :math:`1` s’arrête-t-il vraiment pour tous les termes initiaux
+      possibles?
 
    On peut essayer de résoudre cette question par ordinateur. Malheureusement,
    cette tentative est probablement complètement vaine elle aussi car le grand
@@ -485,3 +501,39 @@ programme informatique pour un nombre initial :math:`n` quelconque.
    de décider si un programme va s’arrêter quelles que soient les données qu’on
    lui fournit en entrée. Il se peut donc que l’hypothèse de Collatz soit
    correcte mais qu’elle constitue un problème indécidable.
+
+Exercices
+=========
+
+#. **(Exercice instructif mais facultatif)** Étudier `le code de la fonction <https://docs.python.org/3/library/itertools.html#itertools.combinations>`_
+   ``combinations(iterable, length)`` du module ``itertools`` utilisée dans le
+   problème de la somme des sous-ensembles.
+
+   .. code-block:: python
+      :linenos:
+
+      def combinations(iterable, r):
+          # combinations('ABCD', 2) --> AB AC AD BC BD CD
+          # combinations(range(4), 3) --> 012 013 023 123
+          pool = tuple(iterable)
+          n = len(pool)
+          if r > n:
+              return
+          indices = list(range(r))
+          yield tuple(pool[i] for i in indices)
+          while True:
+              for i in reversed(range(r)):
+                  if indices[i] != i + n - r:
+                      break
+              else:
+                  return
+              indices[i] += 1
+              for j in range(i+1, r):
+                  indices[j] = indices[j-1] + 1
+              yield tuple(pool[i] for i in indices)
+
+   .. admonition:: Indication
+      :class: tip
+
+      Étudier particulièrement le rôle du mot clé ``yield`` qui constitue une
+      fonctionnalité avancée de Python

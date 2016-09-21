@@ -19,8 +19,8 @@ Module 5 : Informatique théorique
 
         *   :download:`files/oci-info-theo.pdf`
 
-Table des matières
-==================
+Informatique théorique
+======================
 
 ..  toctree::
     :glob:
@@ -34,6 +34,24 @@ Table des matières
 
 
     .. appendix/unittest
+
+
+Structures de données
+=====================
+
+..  toctree::
+    :glob:
+    :maxdepth: 1
+
+    array/index
+    linked_list/index
+    stack/index
+    queue/index
+    hashtable/index
+    tree/index
+    binary_tree/index
+    bst/index
+    avl/index
 
 ..
     Indices and ref
