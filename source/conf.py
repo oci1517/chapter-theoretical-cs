@@ -241,3 +241,6 @@ man_pages = [
      [u'Cédric Donner'], 1)
 
 ]
+
+def setup(app):
+    app.add_javascript('js/code_selection.js')
