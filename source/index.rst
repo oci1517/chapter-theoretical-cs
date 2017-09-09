@@ -7,17 +7,24 @@
 Module 5 : Informatique théorique
 #######################################
 
-..  admonition:: Référence et sources
-    :class: danger
+.. admonition:: Référence et sources
+   :class: danger
 
-    Source : Ce cours est une adaptation du magnifique ouvrage *Concepts de programmation* de Jarka Arnold, Tobias Kohn et Aegidius Plüss (www.tigerjython.fr).
+   Source : Ce cours est une adaptation du magnifique ouvrage *Concepts de programmation* de Jarka Arnold, Tobias Kohn et Aegidius Plüss (www.tigerjython.fr).
 
-..  only:: html
+.. only:: html
 
-    ..  admonition:: Version PDF de ce chapitre
-        :class: tip
+   .. admonition:: Version PDF de ce chapitre
+      :class: tip
 
-        *   :download:`files/oci-info-theo.pdf`
+      *   :download:`files/oci-info-theo.pdf`
+
+   .. admonition:: Bloc-notes OneNote pour le déroulement et les devoirs
+      :class: tip
+
+      Les déroulement de ce chapitre ainsi que les devoirs sont notés dans ce
+      `bloc-notes OneNote <https://onenote.com/webapp/pages?token=aKhX1IYlrLDgwDvq_Xyq_FGH0cPI4AnLPvR0bqJ0vWtCe9Yz_Tn_1YotORGHIM3eMDUus7v-p5LwH_ej70N-agBGTg8dT4jE0&id=636100429416590658>`_ 
+      (accessible en lecture seule)
 
 Informatique théorique
 ======================
@@ -41,17 +48,9 @@ Structures de données
 
 ..  toctree::
     :glob:
-    :maxdepth: 1
+    :maxdepth: 2
 
-    array/index
-    linked_list/index
-    stack/index
-    queue/index
-    hashtable/index
-    tree/index
-    binary_tree/index
-    bst/index
-    avl/index
+    ds/index
 
 ..
     Indices and ref
