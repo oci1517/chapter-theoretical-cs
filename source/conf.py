@@ -49,8 +49,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Informatique théorique'
-copyright = u'avril 2016, Cédric Donner'
+project = u'Algorithmes et structures de données'
+copyright = u'novembre 2018, Cédric Donner'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the

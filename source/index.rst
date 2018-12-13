@@ -4,7 +4,7 @@
     contain the root `toctree` directive.
 
 #######################################
-Module 5 : Informatique théorique
+Module 5 : Algorithmes et structures de données
 #######################################
 
 .. admonition:: Référence et sources
@@ -26,13 +26,16 @@ Module 5 : Informatique théorique
       `bloc-notes OneNote <https://onenote.com/webapp/pages?token=aKhX1IYlrLDgwDvq_Xyq_FGH0cPI4AnLPvR0bqJ0vWtCe9Yz_Tn_1YotORGHIM3eMDUus7v-p5LwH_ej70N-agBGTg8dT4jE0&id=636100429416590658>`_ 
       (accessible en lecture seule)
 
-Informatique théorique
-======================
+
+Algorithmes
+===========
 
 ..  toctree::
     :glob:
     :maxdepth: 1
 
+    recursion/index
+    search/index
     tri-complexite/index
     tp-tri/index
     tp-tri/selection-corrige
