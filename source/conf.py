@@ -102,23 +102,25 @@ pygments_style = 'sphinx'
 
 # -- Options for HTML output ----------------------------------------------
 
-theme = 'readthedocs'
-try:
-    #raise Exception
-    if theme == 'readthedocs':
-        import sphinx_rtd_theme
-        html_theme = "sphinx_rtd_theme"
-        html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
-    elif theme == 'bootstrap':
-        import sphinx_bootstrap_theme
-        from bootstrap_theme_options import *
-        html_theme = 'bootstrap'
-        html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
-except Exception as e:
-    import sys
-    print(str(e))
-    sys.exit(1)
-    html_theme = 'sphinxdoc'
+# theme = 'readthedocs'
+# try:
+#     #raise Exception
+#     if theme == 'readthedocs':
+#         import sphinx_rtd_theme
+#         html_theme = "sphinx_rtd_theme"
+#         html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+#     elif theme == 'bootstrap':
+#         import sphinx_bootstrap_theme
+#         from bootstrap_theme_options import *
+#         html_theme = 'bootstrap'
+#         html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
+# except Exception as e:
+#     import sys
+#     print(str(e))
+#     sys.exit(1)
+#     html_theme = 'sphinxdoc'
+
+html_theme = 'sphinx_book_theme'
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
@@ -244,4 +246,5 @@ man_pages = [
 ]
 
 def setup(app):
-    app.add_javascript('js/code_selection.js')
+    # app.add_javascript('js/code_selection.js')
+    pass
